@@ -254,3 +254,33 @@ class TokenlessAuth(loading.BaseLoader):
             raise exceptions.OptionError(m)
 
         return super(TokenlessAuth, self).load_from_options(**kwargs)
+
+class RefreshToken(loading.BaseV3Loader):
+    """docstring for RefreshToken."""
+
+    @property
+    def plugin_class(self):
+        return identity.V3RefreshToken
+
+
+    def get_options(self):
+        options = super(RefreshToken, self).get_options()
+
+        options.extend([
+            loading.Opt('client_id', require=True, help='Clien`s ID'),
+            loading.Opt('client_secret', secret=True, require=True, help='Client`s Secret'),
+            loading.Opt('refresh_token', require=True, help='User`s refresh token),
+        ])
+
+        return options
+
+
+    def load_from_options(self, **kwargs):
+        if (not kwargs.get('client_id') and
+            not kwargs.get('client_secret') and
+            not kwargs.get('refresh_token')):
+            m = ('You need to provide the client_id,'
+            'client_secret and the refresh_token.')
+            raise exceptions.OptionError(m)
+
+        return super(RefreshToken, self).load_from_options(**kwargs)
