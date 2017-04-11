@@ -55,7 +55,7 @@ V3TOTP = v3.TOTP
 V3TokenlessAuth = v3.TokenlessAuth
 """See :class:`keystoneauth1.identity.v3.TokenlessAuth`"""
 
-V3.RefreshToken = v3.RefreshToken
+V3RefreshToken = v3.RefreshToken
 """See :class:`keystoneauth1.identity.v3.RefreshToken`"""
 
 __all__ = ('BaseIdentityPlugin',
