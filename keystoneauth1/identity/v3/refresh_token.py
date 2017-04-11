@@ -26,8 +26,8 @@ class RefreshTokenMethod(base.AuthMethod):
         return
 
     def get_cache_id_elements(self):
-
-        return
+        return dict(('refresh_token_%s' % p, getattr(self, p))
+                    for p in self._method_parameters)
 
 
 

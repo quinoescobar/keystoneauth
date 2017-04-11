@@ -269,7 +269,7 @@ class RefreshToken(loading.BaseV3Loader):
         options.extend([
             loading.Opt('client_id', require=True, help='Clien`s ID'),
             loading.Opt('client_secret', secret=True, require=True, help='Client`s Secret'),
-            loading.Opt('refresh_token', require=True, help='User`s refresh token),
+            loading.Opt('refresh_token', require=True, help='User`s refresh token'),
         ])
 
         return options
